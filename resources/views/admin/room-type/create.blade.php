@@ -14,7 +14,7 @@
                       </div>  
                       <div class="form-group">
                         <label>Fasilitas 1</label>
-                        <select class="form-control" id="roomfacility1" name="roomfacility1">
+                        <select class="form-control" id="facilityroom1" name="facilityroom1">
                           <option>..</option>
                           @foreach($facilityrooms as $facilityroom)
                           <option value="{{$facilityroom->id}}"  {{old('facility_room1') == $facilityroom->id ? 'selected' : null}}>{{$facilityroom->name}}</option>
@@ -23,7 +23,7 @@
                       </div>
                       <div class="form-group">
                         <label>Fasilitas 2</label>
-                        <select class="form-control" id="roomfacility2" name="roomfacility2">
+                        <select class="form-control" id="facilityroom2" name="facilityroom2">
                           <option value="">..</option>
                           @foreach($facilityrooms as $facilityroom)
                           <option value="{{$facilityroom->id}}" {{old('facility_room2') == $facilityroom->id ? 'selected' : null}}>{{$facilityroom->name}}</option>
@@ -32,7 +32,7 @@
                       </div>
                       <div class="form-group">
                         <label>Fasilitas 3</label>
-                        <select class="form-control" id="roomfacility3" name="roomfacility3">
+                        <select class="form-control" id="facilityroom3" name="facilityroom3">
                           <option value="">..</option>
                           @foreach($facilityrooms as $facilityroom)
                           <option value="{{$facilityroom->id}}" {{old('facility_room3') == $facilityroom->id ? 'selected' : null}}>{{$facilityroom->name}}</option>

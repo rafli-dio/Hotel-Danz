@@ -41,16 +41,16 @@ class RoomTypeController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'facility_room1' => 'required',
-            'facility_room1' => 'required',
-            'facility_room1' => 'required'
+            'facilityroom1' => 'required',
+            'facilityroom2' => 'required',
+            'facilityroom3' => 'required'
         ]);
 
         RoomType::create([
             'name' =>  $request->name,
-            'room_facility1_id' => $request->facility_room1,
-            'room_facility2_id' => $request->facility_room2,
-            'room_facility3_id' => $request->facility_room3,
+            'facilityroom1_id' => $request->facilityroom1,
+            'facilityroom2_id' => $request->facilityroom2,
+            'facilityroom3_id' => $request->facilityroom3,
         ]);
         return redirect('admin/room-type');
     }
@@ -75,9 +75,9 @@ class RoomTypeController extends Controller
     public function edit($id)
     {
         $roomtypes = RoomType::find($id);
-        $facilityrooms1 = FacilityRoom::where('id', '!=', $roomtypes->facility_room1->id)->get();
-        $facilityrooms2 = FacilityRoom::where('id', '!=', $roomtypes->facility_room2->id)->get();
-        $facilityrooms3 = FacilityRoom::where('id', '!=', $roomtypes->facility_room3->id)->get();
+        $facilityrooms1 = FacilityRoom::where('id', '!=', $roomtypes->facilityroom1->id)->get();
+        $facilityrooms2 = FacilityRoom::where('id', '!=', $roomtypes->facilityroom2->id)->get();
+        $facilityrooms3 = FacilityRoom::where('id', '!=', $roomtypes->facilityroom3->id)->get();
         return view('/admin/room-type/edit',compact('roomtypes','facilityrooms1','facilityrooms2','facilityrooms3'));
     }
 
@@ -92,9 +92,9 @@ class RoomTypeController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'roomfacility1' => 'required',
-            'roomfacility2' => 'required',
-            'roomfacility3' => 'required',
+            'facilityroom1_id' => 'required',
+            'facilityroom2_id' => 'required',
+            'facilityroom3_id' => 'required',
         ]);
         RoomType::find($id)->update($request->all());
         return redirect('/admin/room-type/');

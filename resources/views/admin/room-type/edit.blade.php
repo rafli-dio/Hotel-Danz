@@ -22,8 +22,8 @@
                       </div>  
                       <div class="form-group">
                         <label>Fasilitas 1</label>
-                        <select class="form-control" name="roomfacility1" id="roomfacility1">
-                          <option value="{{ $roomtypes->facility_room1->id }}">{{ $roomtypes->facility_room1->name }}</option>
+                        <select class="form-control" name="facilityroom1_id" id="facilityroom1_id">
+                          <option value="{{ $roomtypes->facilityroom1->id }}">{{ $roomtypes->facilityroom1->name }}</option>
                             @foreach($facilityrooms1 as $facilityroom)
                             <option value="{{$facilityroom->id}}">{{$facilityroom->name}}</option>
                             @endforeach
@@ -31,8 +31,8 @@
                       </div>
                       <div class="form-group">
                         <label>Fasilitas 2</label>
-                        <select class="form-control" name="roomfacility2" id="roomfacility2">
-                          <option value="{{ $roomtypes->facility_room2->id }}">{{ $roomtypes->facility_room2->name }}</option>
+                        <select class="form-control" name="facilityroom2_id" id="facilityroom2_id">
+                          <option value="{{ $roomtypes->facilityroom2->id }}">{{ $roomtypes->facilityroom2->name }}</option>
                             @foreach($facilityrooms2 as $facilityroom)
                             <option value="{{$facilityroom->id}}">{{$facilityroom->name}}</option>
                             @endforeach
@@ -40,9 +40,9 @@
                       </div>
                       <div class="form-group">
                         <label>Fasilitas 3</label>
-                        <select class="form-control" name="roomfacility3" id="roomfacility3">
-                          <option value="{{ $roomtypes->facility_room2->id }}">{{ $roomtypes->facility_room2->name }}</option>
-                            @foreach($facilityrooms2 as $facilityroom)
+                        <select class="form-control" name="facilityroom3_id" id="facilityroom3_id">
+                          <option value="{{ $roomtypes->facilityroom3->id }}">{{ $roomtypes->facilityroom3->name }}</option>
+                            @foreach($facilityrooms3 as $facilityroom)
                             <option value="{{$facilityroom->id}}">{{$facilityroom->name}}</option>
                             @endforeach
                         </select>

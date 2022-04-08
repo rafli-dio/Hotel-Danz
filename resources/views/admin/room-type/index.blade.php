@@ -22,9 +22,9 @@
                           <td>{{$roomtype->name}}</td>
                           <td>
                               <ul>
-                                  <li>{{$roomtype->facility_room1->name}}</li>
-                                  <li>{{$roomtype->facility_room2->name}}</li>
-                                  <li>{{$roomtype->facility_room3->name}}</li>
+                                  <li>{{$roomtype->facilityroom1->name}}</li>
+                                  <li>{{$roomtype->facilityroom2->name}}</li>
+                                  <li>{{$roomtype->facilityroom3->name}}</li>
                               </ul>
                           </td>
                           <td class="text-center">

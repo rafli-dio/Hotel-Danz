@@ -9,19 +9,18 @@ class RoomType extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','room_facility1_id','room_facility2_id','room_facility3_id'];
-    // protected $fillable = ['name','room_facility1_id'];
+    protected $fillable = ['name','facilityroom1_id','facilityroom2_id','facilityroom3_id'];
 
-    public function facility_room1() {
-        return $this->belongsTo(FacilityRoom::class, 'room_facility1_id');
+    public function facilityroom1() {
+        return $this->belongsTo(FacilityRoom::class, 'facilityroom1_id');
     }
 
-    public function facility_room2() {
-        return $this->belongsTo(FacilityRoom::class, 'room_facility2_id');
+    public function facilityroom2() {
+        return $this->belongsTo(FacilityRoom::class, 'facilityroom2_id');
     }
 
-    public function facility_room3() {
-        return $this->belongsTo(FacilityRoom::class, 'room_facility3_id');
+    public function facilityroom3() {
+        return $this->belongsTo(FacilityRoom::class, 'facilityroom3_id');
     }
 
     public function room() {
