@@ -39,17 +39,23 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'roomtype' => 'required',
             'room_people' => 'required',
             'room_no' => 'required',
+            'room_image' => 'image|file|max:10000|mimes:jpg,jpeg,png',
             'price' => 'required',
         ]);
+
+        $file_name = $request->room_image->getClientOriginalName();
+        $room_image = $request->room_image->storeAs('post-room-image',$file_name);
 
         Room::create([
             'roomtype_id' => $request->roomtype,
             'room_people' => $request->room_people,
             'room_no' => $request->room_no,
+            'room_image' => $room_image,
             'price' => $request->price,
         ]);
 

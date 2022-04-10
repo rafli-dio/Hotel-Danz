@@ -5,7 +5,7 @@
               <div class="col-12 col-md-6 col-lg-12">
                 <div class="card">
                   <div class="card-body">
-                    <form action="{{route('save-room')}}" method="POST">
+                    <form action="{{route('save-room')}}" method="POST" enctype="multipart/form-data">
                       @csrf
                       <div class="form-group">
                       <label for="roomtype">Tipe Kamar: </label>
@@ -23,6 +23,10 @@
                       <div class="form-group">
                         <label>Nomor Kamar</label>
                         <input type="number" class="form-control" id="room_no" name="room_no">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlFile1">Gambar</label>
+                        <input type="file" class="form-control-file" id="room_image" name="room_image">
                       </div>
                       <div class="form-group">
                         <label>Harga Kamar</label>

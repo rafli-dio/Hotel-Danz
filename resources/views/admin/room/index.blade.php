@@ -16,6 +16,7 @@
                           <th>Fasilitas Kamar</th>
                           <th>Jumlah Orang</th>
                           <th>No Kamar</th>
+                          <th>Gambar</th>
                           <th>Harga Kamar</th>
                           <th style="text-align:center">Aksi</th>
                         </thead>
@@ -32,6 +33,9 @@
                           </td>
                           <td>{{$room->room_people}}</td>
                           <td>{{$room->room_no}}</td>
+                          <td>
+                            <img src="{{asset('storage/'. $room->room_image)}}" width="100px">
+                          </td>
                           <td>{{$room->price}}</td>
                           <td  style="text-align:center">
                             <button href="#" class="btn btn-warning" style="width:100px"><a href="{{route('edit-room', + $room->id)}}" class='text-white'><i class="far fa-edit mr-3"></i>Edit</a></button>

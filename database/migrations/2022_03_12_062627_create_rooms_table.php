@@ -18,6 +18,7 @@ class CreateRoomsTable extends Migration
             $table->foreignId('roomtype_id')->constrained('room_types');
             $table->integer('room_people')->unsigned();
             $table->integer('room_no')->unsigned();
+            $table->string('room_image');
             $table->integer('price')->unsigned();
             $table->timestamps();
         });
