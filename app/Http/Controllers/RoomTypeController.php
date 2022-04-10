@@ -43,7 +43,7 @@ class RoomTypeController extends Controller
             'name' => 'required',
             'facilityroom1' => 'required',
             'facilityroom2' => 'required',
-            'facilityroom3' => 'required'
+            'facilityroom3' => 'required',
         ]);
 
         RoomType::create([

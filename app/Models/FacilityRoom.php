@@ -15,8 +15,4 @@ class FacilityRoom extends Model
     public function room () {
         return $this->hasMany(Room::class);
     }
-
-    public function room_type() {
-        return $this->hasMany(RoomType::class);
-    }
 }

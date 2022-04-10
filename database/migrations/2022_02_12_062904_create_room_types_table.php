@@ -17,8 +17,8 @@ class CreateRoomTypesTable extends Migration
             $table->id();
             $table->string('name',20);
             $table->foreignId('facilityroom1_id')->constrained('facility_rooms');
-            $table->foreignId('facilityroom2_id')->constrained('facility_rooms');
-            $table->foreignId('facilityroom3_id')->constrained('facility_rooms');
+            $table->foreignId('facilityroom2_id')->constrained('facility_rooms')->nullable();
+            $table->foreignId('facilityroom3_id')->constrained('facility_rooms')->nullable();
             $table->timestamps();
         });
     }

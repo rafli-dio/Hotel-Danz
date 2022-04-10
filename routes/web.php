@@ -25,6 +25,7 @@ Route::post('save-room-type', 'RoomTypeController@store')->name('save-room-type'
 Route::get('/admin/room-type/{id}/destroy','RoomTypeController@destroy')->name('delete-room-type');
 Route::get('/admin/room-type/{id}/edit','RoomTypeController@edit')->name('edit-room-type');
 Route::patch('/admin/room-type/{id}/update','RoomTypeController@update')->name('update-room-type');
+
 // facility room
 Route::get('/admin/facility-room', 'FacilityRoomController@index')->name('');
 Route::post('save-facility-room', 'FacilityRoomController@store')->name('save-facility-room');
@@ -38,6 +39,11 @@ Route::post('save-facility-hotel', 'FacilityHotelController@store')->name('save-
 Route::get('/admin/facility-hotel/{id}/edit','FacilityHotelController@edit')->name('edit-facility-hotel');
 Route::patch('/admin/facility-hotel/{id}/update','FacilityHotelController@update')->name('update-facility-hotel');
 Route::get('/admin/facility-hotel/{id}/destroy','FacilityHotelController@destroy')->name('delete-facility-hotel');
+
 // room
 Route::get('/admin/room','RoomController@index');
 Route::get('/admin/room/create','RoomController@create');
+Route::post('save-room', 'RoomController@store')->name('save-room');
+Route::get('/admin/room/{id}/edit','RoomController@edit')->name('edit-room');
+Route::patch('/admin/room/{id}/update','RoomController@update')->name('update-room');
+Route::get('/admin/room/{id}/destroy','RoomController@destroy')->name('delete-room');

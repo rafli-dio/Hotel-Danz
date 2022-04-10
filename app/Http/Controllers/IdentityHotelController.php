@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\IdentityHotel;
 use Illuminate\Http\Request;
-
 class IdentityHotelController extends Controller
 {
     /**
@@ -14,7 +13,8 @@ class IdentityHotelController extends Controller
      */
     public function index()
     {
-        //
+        $identityhotels = IdentityHotel::all();
+        return view('admin.identity-hotel.index',compact('identityhotels'));
     }
 
     /**

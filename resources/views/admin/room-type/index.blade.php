@@ -10,12 +10,12 @@
                   <div class="card-body p-0">
                     <div class="table-responsive">
                       <table class="table table-striped table-md">
-                        <tr>
+                        <thead>
                           <th>No</th>
                           <th>Nama Kamar</th>
                           <th>Fasilitas Kamar</th>
-                          <th>Aksi</th>
-                        </tr>
+                          <th style="text-align:center">Aksi</th>
+                        </thead>
                         @foreach($roomtypes as $roomtype)
                         <tr>
                           <td>1</td>
@@ -27,7 +27,7 @@
                                   <li>{{$roomtype->facilityroom3->name}}</li>
                               </ul>
                           </td>
-                          <td class="text-center">
+                          <td style="text-align:center">
                             <button href="#" class="btn btn-warning" style="width:100px"><a href="{{route('edit-room-type',+ $roomtype->id)}}" class='text-white'><i class="far fa-edit mr-3"></i>Edit</a></button>
                             <button  class="btn btn-danger" style="width:100px"><a href="{{route('delete-room-type',+ $roomtype->id)}}" class='text-white'>
                             <i class="far fa-trash-alt mr-2"></i>Hapus</a></button>

@@ -15,12 +15,10 @@ class CreateRoomsTable extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('room_type_id')->constrained('room_types');
-            $table->foreignId('room_facility_id')->constrained('facility_rooms');
+            $table->foreignId('roomtype_id')->constrained('room_types');
             $table->integer('room_people')->unsigned();
             $table->integer('room_no')->unsigned();
-            $table->integer('room_price')->unsigned();
-            $table->string('room_photo',50);
+            $table->integer('price')->unsigned();
             $table->timestamps();
         });
 

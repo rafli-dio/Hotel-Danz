@@ -38,11 +38,11 @@
                   <div class="card-body p-0">
                     <div class="table-responsive">
                       <table class="table table-striped table-md">
-                        <tr>
+                        <thead>
                           <th>No</th>
                           <th>Nama Fasilitas</th>
                           <th style="text-align:center">Aksi</th>
-                        </tr>
+                        </thead>
                         @foreach($facilityrooms as $facilityroom)
                         <tr>
                           <td>{{$loop->iteration}}</td>

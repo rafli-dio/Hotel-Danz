@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Room;
+use App\Models\RoomType;
 
 class RoomController extends Controller
 {
@@ -15,7 +16,8 @@ class RoomController extends Controller
     public function index()
     {
         $rooms = Room::all();
-        return view('admin.room.index',compact('rooms'));
+        $roomtypes = RoomType::all();
+        return view('admin.room.index',compact('rooms','roomtypes'));
     }
 
     /**
@@ -25,8 +27,8 @@ class RoomController extends Controller
      */
     public function create()
     {
-        // $rooms = Room::all();
-        return view('admin.room.create');
+        $roomtypes = RoomType::all();
+        return view('admin.room.create',compact('roomtypes'));
     }
 
     /**
@@ -37,7 +39,21 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'roomtype' => 'required',
+            'room_people' => 'required',
+            'room_no' => 'required',
+            'price' => 'required',
+        ]);
+
+        Room::create([
+            'roomtype_id' => $request->roomtype,
+            'room_people' => $request->room_people,
+            'room_no' => $request->room_no,
+            'price' => $request->price,
+        ]);
+
+        return redirect('admin/room');
     }
 
     /**
@@ -59,7 +75,9 @@ class RoomController extends Controller
      */
     public function edit($id)
     {
-        //
+        $rooms = Room::find($id);
+        $roomtypes = RoomType::where('id', '!=',$rooms->roomtype->id)->get();
+        return view('/admin/room/edit',compact('rooms','roomtypes'));
     }
 
     /**
@@ -71,7 +89,14 @@ class RoomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'roomtype_id' => 'required',
+            'room_people' => 'required',
+            'room_no' => 'required',
+            'price' => 'required',
+        ]);
+        Room::find($id)->update($request->all());
+        return redirect('/admin/room');
     }
 
     /**
@@ -82,6 +107,7 @@ class RoomController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Room::find($id)->delete();
+        return redirect('/admin/room');
     }
 }

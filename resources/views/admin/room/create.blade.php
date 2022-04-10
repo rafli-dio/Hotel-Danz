@@ -5,67 +5,31 @@
               <div class="col-12 col-md-6 col-lg-12">
                 <div class="card">
                   <div class="card-body">
-                    <div class="form-group">
-                      <label>Default Input Text</label>
-                      <input type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label>Phone Number (US Format)</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">
-                            <i class="fas fa-phone"></i>
-                          </div>
-                        </div>
-                        <input type="text" class="form-control phone-number">
+                    <form action="{{route('save-room')}}" method="POST">
+                      @csrf
+                      <div class="form-group">
+                      <label for="roomtype">Tipe Kamar: </label>
+                      <select class="form-control" name="roomtype" id="roomtype">
+                        <option value="">Masukan Tipe Kamar</option>
+                        @foreach($roomtypes as $roomtype)
+                        <option value="{{$roomtype->id}}"   {{old('roomtype') == $roomtype->id ? 'selected' : null}}>{{$roomtype->name}}</option>
+                        @endforeach
+                      </select>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label>Password Strength</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">
-                            <i class="fas fa-lock"></i>
-                          </div>
-                        </div>
-                        <input type="password" class="form-control pwstrength" data-indicator="pwindicator">
+                      <div class="form-group">
+                        <label>Jumlah Orang</label>
+                        <input type="number" class="form-control" id="room_people" name="room_people">
                       </div>
-                      <div id="pwindicator" class="pwindicator">
-                        <div class="bar"></div>
-                        <div class="label"></div>
+                      <div class="form-group">
+                        <label>Nomor Kamar</label>
+                        <input type="number" class="form-control" id="room_no" name="room_no">
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label>Currency</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">
-                            $
-                          </div>
-                        </div>
-                        <input type="text" class="form-control currency">
+                      <div class="form-group">
+                        <label>Harga Kamar</label>
+                          <input type="text" class="form-control currency" id="price" name="price">
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label>Purchase Code</label>
-                      <input type="text" class="form-control purchase-code" placeholder="ASDF-GHIJ-KLMN-OPQR">
-                    </div>
-                    <div class="form-group">
-                      <label>Invoice</label>
-                      <input type="text" class="form-control invoice-input">
-                    </div>
-                    <div class="form-group">
-                      <label>Date</label>
-                      <input type="text" class="form-control datemask" placeholder="YYYY/MM/DD">
-                    </div>
-                    <div class="form-group">
-                      <label>Credit Card</label>
-                      <input type="text" class="form-control creditcard">
-                    </div>
-                    <div class="form-group">
-                      <label>Tags</label>
-                      <input type="text" class="form-control inputtags">
-                    </div>
+                      <button type="submit" class="btn btn-primary float-right">Tambah Data</button>
+                    </form>
                   </div>
                 </div>
 @endsection
