@@ -1,9 +1,5 @@
 @include('layouts.index')
-
-
-
-<link rel="stylesheet" href="/css/welcome-blade.css">
-
+<link rel="stylesheet" href="/css/guest-blade.css">
 <div class="container">
     <section class="jumbotron">
         <div class="wrapper">
@@ -22,32 +18,26 @@
     <section class="facility">
         <!-- Section BOOKING -->
         <div class="booking-hotel">
-            <h3 class="title-booking">Booking</h3>
+            <!-- <h3 class="title-booking">Fasilitas Hotel</h3> -->
+            <div class="logo">
+            <h4>Hotel<span>Danz</span></h4>
+            </div>
             <div class="booking-wrapper-items">
                 <div class="booking">
                     <i class="fas fa-calendar-plus"></i>
                     <p>check in</p>
-                    <form action="">
-                        <input type="date">
-                    </form>
                 </div>
                 <div class="booking">
                     <i class="fas fa-calendar-minus"></i>
                     <p>check out</p>
-                    <form action="">
-                        <input type="date">
-                    </form>
                 </div>
                 <div class="booking">
                     <i class="fas fa-bed"></i>
                     <p>jumlah kamar</p>
-                    <form action="" >
-                        <input type="number">
-                    </form>
                 </div>
                 <br>
                 <div class="booking">
-                   <button class="btn-pesan"><a href="/login">Pesan</a></button>
+                   <button class="btn-pesan"><a href="/guest/reservation">Reservasi</a></button>
                 </div>
                 
             </div>
@@ -104,28 +94,16 @@
                     <h3 class="title-class">{{$room->roomtype->name}}</h3>
                     <p class="desc-class">harga : <span>RP.{{$room->price}}</span> </p>
                 </div>
-                <div class="button-detail">
-                    <button class="btn-detail"><a href="/login">Detail</a></button>
+                <div class="pesan">
+                    <button class="btn-pesan"><a href="{{route('create-reservation', + $room->id)}}">Reservasi</a></button>
                 </div>
-            </div>
+                </div>
             @endforeach
         </div>
     </section>
-    <!-- Gallery -->
- <!-- <section class="gallery">
-        <h2 class="title-gallery">Gallery</h2>
-        <div class="wrapper-img">
-            <img src="/assets/image/room/luxury-room.jpg" alt="">
-            <img src="/assets/image/room/luxury-room.jpg" alt="">
-            <img src="/assets/image/room/luxury-room.jpg" alt="">
-            <img src="/assets/image/room/luxury-room.jpg" alt="">
-            <img src="/assets/image/room/luxury-room.jpg" alt="">
-    </section> -->
-
 </div>
 
-
- <script>
+<script>
   $('.owl-carousel').owlCarousel({
     rtl:false,
     loop:false,

@@ -3,6 +3,7 @@
 body {
     height: 2000px;
 }
+
 .jumbotron {
     width: 80%;
     margin: auto;
@@ -13,43 +14,55 @@ body {
 .wrapper {
     width: 100%;
     display: grid;
-    grid-template-columns:80% 1fr;
+    grid-template-columns: 80% 1fr;
     margin: 50px auto;
     height: 500px;
     background-size: cover;
-    background-image:url('/assets/image/jumbotron.jpg');
+    background-image: url('/assets/image/jumbotron.jpg');
     border-radius: 20px;
     background-position-y: -90px;
-    box-shadow: 120 4px 12px -2px rgba(0,0,0,0.38);
+    box-shadow: 120 4px 12px -2px rgba(0, 0, 0, 0.38);
+}
+
+.logo h4 {
+    font-family: 'Poppins';
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #1038E9;
+    margin-left: 30px;
+}
+
+.logo span {
+    color: #223279;
 }
 
 
 .warna-bg {
-  height: 300px;
-  border-radius: 20px;
-  width: 108.7%;
-  display: grid;
-  grid-template-columns:80% 400px;
-  margin:  auto;
-  padding: 100px;
-  color: white;
-  font-family: 'Poppins';
-  font-size: 30px;
+    height: 300px;
+    border-radius: 20px;
+    width: 108.7%;
+    display: grid;
+    grid-template-columns: 80% 400px;
+    margin: auto;
+    padding: 100px;
+    color: white;
+    font-family: 'Poppins';
+    font-size: 30px;
 }
 
 .desc-h1 {
     line-height: 50px;
 }
 
-.warna-bg .desc-p{
-   font-size: 12px;
-   margin-top: 20px;
+.warna-bg .desc-p {
+    font-size: 12px;
+    margin-top: 20px;
 }
 
 .desc-bt {
     border: none;
-    border-radius: 10px; 
-    padding: 14px;   
+    border-radius: 10px;
+    padding: 14px;
     background-color: #223279;
     color: white;
     font-size: 10px;
@@ -70,14 +83,17 @@ body {
     padding: 20px;
     margin-top: -150px;
     border-radius: 10px;
-    
+
 }
+
 /* BOOKING */
 
 .booking-hotel {
     margin-left: 50px;
     color: #223279;
 }
+
+/* .booking-hotel .logo {} */
 
 .title-booking {
     margin: auto;
@@ -99,62 +115,45 @@ body {
 }
 
 .booking img {
-    width: 20px; 
+    width: 20px;
 }
 
-.booking form input{
-   width: 100px;
-   margin-top: 10px;
-   border-radius: 10px;
-   text-align: center;
+.booking form input {
+    width: 100px;
+    margin-top: 10px;
+    border-radius: 10px;
+    text-align: center;
 }
 
+.pesan {
+    display: flex;
+    justify-content: center;
+}
 
 
 .btn-pesan {
     border: none;
-    margin-top: 40px;
+    margin-bottom: 20px;
     padding: 10px;
     color: white;
     background-color: #223279;
     border-radius: 20px;
-    width: 100px;
+    width: 200px;
     cursor: pointer;
     justify-self: center;
-    }
-    
-    .btn-pesan a {
-        color: white;
-        text-decoration: none;
-    }
-    
-    .button-detail {
-        display: flex;
-        justify-content: center;
-    }
-    
-    .btn-detail {
-        border: none;
-        padding: 10px;
-        color: white;
-        background-color: #223279;
-        border-radius: 20px;
-        cursor: pointer;
-    width: 200px;
-    text-align: center;
-    margin: 20px auto;
 }
 
-.btn-detail a {
+.btn-pesan a {
     color: white;
     text-decoration: none;
 }
+
 /* about me */
 .about {
     margin: 70px auto;
     display: grid;
-    grid-template-columns: repeat(2,500px);
-    box-shadow: 13px 1px 9px -5px rgba(0,0,0,0.30);
+    grid-template-columns: repeat(2, 500px);
+    box-shadow: 13px 1px 9px -5px rgba(0, 0, 0, 0.30);
     width: 80%;
     border-radius: 20px;
 }
@@ -165,7 +164,7 @@ body {
 
 /* image-ilustration */
 .image-ilustration img {
-    border-radius:  20px;
+    border-radius: 20px;
     width: 400px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
@@ -174,12 +173,14 @@ body {
 .text-about {
     margin-bottom: 100px;
 }
+
 #title-about {
     font-family: 'Poppins';
     font-size: 30px;
     color: #223279;
     font-weight: bold;
 }
+
 #desc-about {
     margin-top: 40px;
     word-spacing: 12px;
@@ -190,7 +191,7 @@ body {
 .advantages {
     display: grid;
     margin-top: 30px;
-    grid-template-columns: repeat(2,200px);
+    grid-template-columns: repeat(2, 200px);
     row-gap: 20px;
 }
 
@@ -220,7 +221,7 @@ body {
 }
 
 .card-class {
-    box-shadow: 8px 4px 5px -6px rgba(0,0,0,0.51);
+    box-shadow: 8px 4px 5px -6px rgba(0, 0, 0, 0.51);
     margin: 10px;
     border-radius: 10px;
     color: #223279;
@@ -236,27 +237,82 @@ body {
     padding: 50px;
 }
 
-/* Gallery */
-
-.gallery {
-    margin: 70px auto;
-    text-align: center;
-    color: #223279;
-    /* box-shadow: 5px 1px 5px 2px rgba(0,0,0,0.30); */
-    width: 80%;
+.btn-pesan {
+    border: none;
+    margin-top: 40px;
+    padding: 10px;
+    color: white;
+    background-color: #223279;
+    border-radius: 20px;
+    width: 100px;
+    cursor: pointer;
+    justify-self: center;
 }
 
-.wrapper-img {
+.btn-pesan a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* Reservation */
+
+.header-reservation {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.title-reservation {
+    color: #223279;
+}
+
+.title-desc {
+    color: #A8A2A2;
+}
+
+.container-form {
     display: grid;
-    grid-template-columns: repeat(4,200px);
-    column-gap: 20px;
+    margin-top: 100px;
+    grid-template-columns: repeat(2, 500px);
     justify-content: center;
 }
 
-.wrapper-img img {
-    margin-top: 30px;
-    width: 200px;
+.form-items {
+    margin-top: 20px;
+
 }
+
+.form-items label {
+    font-weight: 200;
+    margin-left: 20px;
+}
+
+.form-items input {
+    width: 300px;
+    height: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.card-type {
+    border-right: 2px solid rgb(112, 111, 111);
+}
+
+.card-type img {
+    width: 400px;
+}
+
+.card-type h2 {
+    color: #223279;
+}
+
+.card-type p {
+    margin-top: 10px;
+    color: #837d7d;
+}
+
 /* responsive break point */
 
 @media screen and (max-width: 1024px) {
@@ -265,22 +321,22 @@ body {
         background-position-y: -7px;
     }
 
-   .jumbotron {
-       display: flex;
-   }
-   
-   .about {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 9px 1px 7px -4px rgba(0,0,0,0.20);
-}
+    .jumbotron {
+        display: flex;
+    }
 
-.booking-hotel {
-    display: none;
-}
+    .about {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: 9px 1px 7px -4px rgba(0, 0, 0, 0.20);
+    }
 
-/*
+    .booking-hotel {
+        display: none;
+    }
+
+    /*
 .booking form input{
     width: 70px;
     margin-top: 10px;
@@ -294,7 +350,7 @@ body {
     flex-wrap: wrap;
 } */
 
-/* .btn-pesan {
+    /* .btn-pesan {
     border: none;
     margin-top: 40px;
     padding: 10px;
@@ -306,45 +362,45 @@ body {
     width: 200px;
     justify-self: center;
 } */
-.booking-wrapper-items .booking img {
-    font-size: 9px;
-    text-align: center;
+    .booking-wrapper-items .booking img {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .booking-wrapper-items .booking p {
+        font-weight: bold;
+    }
+
+    .title-booking {
+        text-align: center;
+    }
+
+
+
+    .about-items {
+        width: 50%;
+        margin: auto;
+    }
+
+    .image-ilustration img {
+        width: 400px;
+        margin: auto;
+    }
+
+    .advantages {
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+    }
+
+    /* class room */
+    .class-room {
+        grid-template-columns: 300px;
+        row-gap: 20px;
+    }
 }
 
-.booking-wrapper-items  .booking p {
-    font-weight: bold;
-}
-
-.title-booking {
-    text-align: center;
-}
-
-
-
-.about-items {
-    width: 50%;
-    margin: auto;
-}
-
-.image-ilustration img {
-    width: 400px;
-    margin: auto;
-}
-
-.advantages {
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-}
-
-/* class room */
-.class-room {
-    grid-template-columns: 300px;
-    row-gap: 20px;
-}
-}
-
- @media screen and (max-width: 576px) {
+@media screen and (max-width: 576px) {
     .jumbotron {
         width: 400px;
         display: flex;
@@ -358,43 +414,46 @@ body {
 
     /* facility */
     .facility {
-        margin-top:20px;
+        margin-top: 20px;
         width: 80%;
         margin: auto;
     }
+
     .icon-wrapper {
         justify-content: center;
     }
-    
+
     /* booking */
     .booking-wrapper-items {
         margin-top: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        
+
     }
+
     .booking-wrapper-items .booking img {
         font-size: 9px;
         text-align: center;
     }
 
-    .booking-wrapper-items  .booking p {
+    .booking-wrapper-items .booking p {
         font-weight: bold;
     }
-    
+
     .title-booking {
         text-align: center;
     }
 
-  
+
     /* abaout */
     .about {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        box-shadow: 9px 1px 7px -4px rgba(0,0,0,0.20);
+        box-shadow: 9px 1px 7px -4px rgba(0, 0, 0, 0.20);
     }
+
     .about-items {
         width: 50%;
         margin: auto;

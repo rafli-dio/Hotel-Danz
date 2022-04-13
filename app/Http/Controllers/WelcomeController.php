@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Models\Reservation;
 use App\Models\Room;
-class ReservationController extends Controller
+use App\Models\RoomType;
+use Illuminate\Http\Request;
+
+class WelcomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        $reservations = Reservation::all();
         $rooms = Room::all();
-        return view('admin.reservation.index',compact('reservations','rooms'));
+        return view('welcome', compact('rooms'));
     }
 
     /**

@@ -8,7 +8,7 @@
             <li><a href="">About</a></li>
             <li><a href="">Product</a></li>
             <li><a href="">Galery</a></li>
-            <li><a href=""  id="login-btn">Login</a></li>
+            <li><a href="/login"  id="login-btn">Login</a></li>
         </ul>
 
         <div class="toggle-menu">

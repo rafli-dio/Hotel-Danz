@@ -15,12 +15,14 @@ class CreateGuestsTable extends Migration
     {
         Schema::create('guests', function (Blueprint $table) {
             $table->id();
-            $table->string('username_guest',10);
-            $table->string('password_guest',50);
-            $table->string('long_name_guest',50);
-            $table->string('no_handphone_guest',20);
+            $table->string('username',30)->unique();
+            $table->string('email',50);
+            $table->string('password');
+            $table->string('long_name',50);
+            $table->string('no_handphone',20);
             $table->enum('gender',['Laki-Laki','Perempuan']);
             $table->integer('age')->unsigned();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

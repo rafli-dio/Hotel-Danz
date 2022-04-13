@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Reservation;
-use App\Models\Room;
-class ReservationController extends Controller
+use App\Models\Receptionist;
+use App\Models\User;
+class ReceptionistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        $reservations = Reservation::all();
-        $rooms = Room::all();
-        return view('admin.reservation.index',compact('reservations','rooms'));
+        $receptionists = Receptionist::all();
+        return view('admin.receptionist.index',compact('receptionists'));
     }
 
     /**
@@ -26,7 +25,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.receptionist.create');
     }
 
     /**
@@ -37,7 +36,24 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required'
+        ]);
+        
+        $user = User::create([
+            "name" => $request->name,
+            "role" => "resepsionis",
+            "password" => bcrypt($request->nis)
+        ]);
+
+        Receptionist::create([
+            'name' => $request->name,
+            'address' => $request->address
+        ]);
+
+
+        return redirect('admin/facility-room');
     }
 
     /**
