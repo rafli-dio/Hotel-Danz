@@ -95,15 +95,25 @@ class FacilityHotelController extends Controller
             'image' => 'image|file|max:10000|mimes:jpg,jpeg,png'
         ]);
 
-        $file_name = $request->image->getClientOriginalName();
-        $image = $request->image->storeAs('post-facility-hotel-image',$file_name);
+        if($request->image) {
+            $file_name = $request->image->getClientOriginalName();
+            $image = $request->image->storeAs('post-facility-hotel-image',$file_name);
+    
+            $facilityhotels = FacilityHotel::find($id)
+            ->update([
+                "name" => $request->name,
+                "desc" => $request->desc,
+                "image" => $image,
+            ]);
+        } else {
+            $facilityhotels = FacilityHotel::find($id)
+            ->update([
+                "name" => $request->name,
+                "desc" => $request->desc,
+            ]);
+        }
 
-        $facilityhotels = FacilityHotel::find($id)
-        ->update([
-            "name" => $request->name,
-            "desc" => $request->desc,
-            "image" => $image,
-        ]);
+        
 
         return redirect('/admin/facility-hotel/');
     }
