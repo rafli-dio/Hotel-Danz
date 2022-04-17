@@ -1,11 +1,42 @@
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="judulModal" aria-hidden="true" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="judulModal">Filter Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{url('admin/reservation')}}" method="GET">
+                          <div class="form-group">
+                            <label for="name">Cari Tanggal Check in</label>
+                            <input class="form-control" type="date" name="check_in" id="check_in">
+                          </div>
+                          <div class="form-group">
+                            <label for="name">Cari Nama</label>
+                            <input class="form-control" type="text" name="guest" id="guest" placeholder="Masukan Nama">
+                          </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Cari Data</button>
+                            </form>
+                          </div>
+                    </div>
+                    </div>
+                </div>
+        </div>
 @extends('layouts.app')
 @section('title','Kamar')
 
 @section('main')
 <div class="col-12 col-md-6 col-lg-12">
-                <div class="card">
-                  <div class="card-header justify-content-end">
-                    <a href="/admin/room/create" class="btn btn-primary">Tambah Kamar</a>
+                  <div class="card">
+                      <div class="card-header justify-content-end">
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formModal">
+                        Filter
+                      </button>
                   </div>
                   <div class="card-body p-0">
                     <div class="table-responsive">
@@ -16,7 +47,6 @@
                           <th>Nama</th>
                           <th>Email</th>
                           <th>No Telepon</th>
-                          <th>Nama Panjang</th>
                           <th>Check in</th>
                           <th>Check out</th>
                         </thead>
@@ -27,7 +57,6 @@
                           <td>{{$reservation->name}}</td>
                           <td>{{$reservation->email}}</td>
                           <td>{{$reservation->no_handphone}}</td>
-                          <td>{{$reservation->long_name}}</td>
                           <td>{{$reservation->check_in}}</td>
                           <td>{{$reservation->check_out}}</td>
                         </tr>
@@ -35,23 +64,7 @@
                       </table>
                     </div>
                   </div>
-                  <div class="card-footer text-right">
-                    <nav class="d-inline-block">
-                      <ul class="pagination mb-0">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
+
                 </div>
               </div>
 @endsection

@@ -14,8 +14,8 @@ class ReceptionistController extends Controller
      */
     public function index()
     {
-        $receptionists = Receptionist::all();
-        return view('admin.receptionist.index',compact('receptionists'));
+        $users = User::where('role','resepsionis')->get();
+        return view('admin.receptionist.index',compact('users'));
     }
 
     /**
@@ -37,23 +37,21 @@ class ReceptionistController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'address' => 'required'
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ]);
+
+        // dd($request->all());
         
-        $user = User::create([
-            "name" => $request->name,
+        User::create([
+            "username" => $request->username,
+            "email" => $request->email,
+            "password" => bcrypt($request->password),
             "role" => "resepsionis",
-            "password" => bcrypt($request->nis)
         ]);
 
-        Receptionist::create([
-            'name' => $request->name,
-            'address' => $request->address
-        ]);
-
-
-        return redirect('admin/facility-room');
+        return redirect('admin/receptionist');
     }
 
     /**
@@ -75,7 +73,8 @@ class ReceptionistController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::find($id);
+        return view('admin.receptionist.edit',compact('users'));
     }
 
     /**
@@ -87,7 +86,20 @@ class ReceptionistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $users = User::find($id)
+        ->update([
+            "username" => $request->username,
+            "email" => $request->email,
+            "password" => bcrypt($request->password),
+        ]);
+
+        return redirect('admin/receptionist');
     }
 
     /**
@@ -98,6 +110,7 @@ class ReceptionistController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+        return redirect('/admin/recepsionist');
     }
 }

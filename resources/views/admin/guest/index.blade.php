@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Kamar')
+@section('title','Tamu')
 
 @section('main')
 <div class="col-12 col-md-6 col-lg-12">
@@ -30,7 +30,7 @@
                           <td>{{$guest->gender}}</td>
                           <td>{{$guest->age}}</td>
                           <td  style="text-align:center">
-                            <button href="#" class="btn btn-warning" style="width:100px"><a href="" class='text-white'><i class="far fa-edit mr-3"></i>Edit</a></button>
+                            <button href="#" class="btn btn-warning" style="width:100px"><a href="{{route('edit-guest', + $guest->id)}}" class='text-white'><i class="far fa-edit mr-3"></i>Edit</a></button>
                             <button  class="btn btn-danger" style="width:100px"> <a href="{{route('delete-guest',+ $guest->id)}}" class='text-white'>
                             <i class="far fa-trash-alt mr-2"></i>Hapus</a></button>
                           </td>

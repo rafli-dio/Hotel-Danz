@@ -99,9 +99,24 @@ class RoomController extends Controller
             'roomtype_id' => 'required',
             'room_people' => 'required',
             'room_no' => 'required',
+            'room_image' => 'image|file|max:10000|mimes:jpg,jpeg,png',
             'price' => 'required',
         ]);
-        Room::find($id)->update($request->all());
+
+        // dd($request);
+
+        $file_name = $request->room_image->getClientOriginalName();
+        $room_image = $request->room_image->storeAs('post-room-image',$file_name);
+    
+        $rooms = Room::find($id)
+        ->update([
+            'roomtype_id' => $request->roomtype_id,
+            'room_people' => $request->room_people,
+            'room_no' => $request->room_no,
+            'room_image' => $room_image,
+            'price' => $request->price,
+        ]);
+
         return redirect('/admin/room');
     }
 

@@ -23,6 +23,44 @@ body {
     box-shadow: 120 4px 12px -2px rgba(0,0,0,0.38);
 }
 
+nav {
+    background-color: white;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .logo h4 {
+    font-family: 'Poppins';
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #1038E9;
+    margin-left: 30px;
+}
+
+nav .logo span {
+    color: #223279;
+}
+
+nav ul {
+    display: flex;
+    justify-content: end;
+    width: 30%;
+    list-style: none;
+    margin-left: 600px;
+}
+
+nav ul li a {
+    padding: 15px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #223279;
+}
+
+nav ul li a:hover {
+    color: #1038E9;
+}
 
 .warna-bg {
   height: 300px;
@@ -116,7 +154,7 @@ body {
     margin-top: 40px;
     padding: 10px;
     color: white;
-    background-color: #223279;
+    background-color: #1038E9;
     border-radius: 20px;
     width: 100px;
     cursor: pointer;
@@ -137,17 +175,20 @@ body {
         border: none;
         padding: 10px;
         color: white;
-        background-color: #223279;
+        background-color: #1038E9;
         border-radius: 20px;
         cursor: pointer;
-    width: 200px;
-    text-align: center;
-    margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        margin: 20px auto;
 }
 
 .btn-detail a {
     color: white;
     text-decoration: none;
+}
+.desc-items {
+    text-align: center;
 }
 /* about me */
 .about {
@@ -211,12 +252,12 @@ body {
 }
 
 .class-room {
-    margin-top: 50px;
     display: flex;
     width: 80%;
     margin: auto;
-    padding: 20px;
+    padding: 80px;
     border-radius: 10px;
+    box-shadow: 8px 4px 5px -6px rgba(0, 0, 0, 0.51);
 }
 
 .card-class {
@@ -236,31 +277,95 @@ body {
     padding: 50px;
 }
 
-/* Gallery */
+/* footer */
 
-.gallery {
-    margin: 70px auto;
-    text-align: center;
-    color: #223279;
-    /* box-shadow: 5px 1px 5px 2px rgba(0,0,0,0.30); */
-    width: 80%;
-}
-
-.wrapper-img {
+footer {
+    margin-top: 100px;
     display: grid;
-    grid-template-columns: repeat(4,200px);
-    column-gap: 20px;
-    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    height: 200px;
+    background-color: #1b1b1b;
+    padding: 20px;
 }
 
-.wrapper-img img {
-    margin-top: 30px;
-    width: 200px;
+/* items 1 */
+.logo h4 {
+    font-family: 'Poppins';
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: #1038E9;
 }
+
+.logo span {
+    color: #223279;
+}
+
+.items1-desc {
+    width: 200px;
+    color: #aaaaaa;
+    margin-top: 10px;
+}
+
+.title-items {
+    color: #ffff;
+    margin-top: 30px;
+}
+.footer-items ul li {
+    color: #aaaaaa;
+    margin-top: 15px;
+    list-style: none;
+    cursor: pointer;
+}
+
+
+/* endfooter */
 /* responsive break point */
 
 @media screen and (max-width: 1024px) {
 
+    nav {
+        justify-content: space-around;
+    }
+    
+    nav ul {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: black;
+        z-index: 1;
+        background-color: #223279;
+        width: 100%;
+        transform: translateX(100%);
+        transition: all 1s;
+    }
+    
+    nav ul li a {
+        color: white;
+    }
+    
+    nav ul li a:hover {
+        background-color: white;
+    }
+    
+    nav ul.slide {
+        transform: translateX(0);
+    }
+    
+    
+    
+    .toggle-menu span {
+        display: flex;
+        z-index: 2;
+        color: white;
+    }
+    
+    .toggle-menu span:hover {
+        background-color: white;
+    }
     .wrapper {
         background-position-y: -7px;
     }
@@ -280,32 +385,6 @@ body {
     display: none;
 }
 
-/*
-.booking form input{
-    width: 70px;
-    margin-top: 10px;
-    border-radius: 10px;
-    text-align: center;
- }
-
-.booking-wrapper-items {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-} */
-
-/* .btn-pesan {
-    border: none;
-    margin-top: 40px;
-    padding: 10px;
-    color: white;
-    background-color: #223279;
-    border-radius: 20px;
-    width: 50px;
-    cursor: pointer;
-    width: 200px;
-    justify-self: center;
-} */
 .booking-wrapper-items .booking img {
     font-size: 9px;
     text-align: center;
@@ -345,6 +424,53 @@ body {
 }
 
  @media screen and (max-width: 576px) {
+/* nav */
+
+nav {
+    justify-content: space-around;
+}
+
+nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: black;
+    z-index: 1;
+    background-color: #223279;
+    width: 100%;
+    transform: translateX(100%);
+    transition: all 1s;
+}
+
+nav ul li a {
+    color: white;
+}
+
+nav ul li a:hover {
+    background-color: white;
+}
+
+nav ul.slide {
+    transform: translateX(0);
+}
+
+
+
+.toggle-menu span {
+    display: flex;
+    z-index: 2;
+    color: white;
+}
+
+.toggle-menu span:hover {
+    background-color: white;
+}
+
+/* end nav */
     .jumbotron {
         width: 400px;
         display: flex;
@@ -413,7 +539,11 @@ body {
 
     /* class room */
     .class-room {
-        grid-template-columns: 300px;
-        row-gap: 20px;
-    }
+        display: flex;
+        justify-content: center;
+        }
+        
+        .desc-items {
+            text-align: center;
+        }
 }

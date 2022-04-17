@@ -54,10 +54,8 @@ return [
 
         'user' => [
             'driver' => 'session',
-            'provider' => 'guests'
+            'provider' => 'users'
         ],
-
-
     ],
 
     /*

@@ -90,6 +90,13 @@
             color: white;
             text-decoration: none;
         }
+
+        @media screen and(max-width: 576px) {
+            .container-form {
+                display: flex;
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
@@ -100,10 +107,10 @@
         </div>
 
         <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Product</a></li>
-            <li><a href="">Galery</a></li>
+            <li><a href="/guest">Home</a></li>
+            <li><a href="/guest/#about">About</a></li>
+            <li><a href="/guest/#room">Product</a></li>
+            <li><a href="/guset/#facility">Facility</a></li>
         </ul>
 
         <div class="toggle-menu">

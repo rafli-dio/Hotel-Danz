@@ -3,30 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Reservation;
-use App\Models\Room;
-class ReservationController extends Controller
+use App\Models\Guest;
+
+class RegistrasiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $filter = $request;
-        if($filter->check_in && $filter->guest) {
-            $reservations = Reservation::where('check_in',$filter->check_in)
-            ->where('name','like',"%" . $filter->guest . "%")->get();
-        }elseif ($filter->check_in) {
-            $reservations = Reservation::where('check_in', $filter->check_in)->get();
-        }elseif ($filter->guest) {
-            $reservations = Reservation::where('name', 'like', "%" . $filter->guest . "%")->get();
-        } else {
-            $reservations = Reservation::all();
-        }
-
-        return view('admin.reservation.index', compact('filter', 'reservations'));
+        //
     }
 
     /**
@@ -36,7 +24,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.registrasi');
     }
 
     /**
@@ -47,7 +35,28 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+                    'username' => 'required',
+                    'email' => 'required',
+                    'password' => 'required',
+                    'role' => 'required',
+                    'long_name' => 'required',
+                    'no_handphone' => 'required',
+                    'gender' => 'required',
+                    'age' => 'required',
+                ]);
+        
+                Guest::create([
+                    'username' => $request->username,
+                    'email' => $request->email,
+                    'password' => bcrypt($request->password),
+                    'role' => $request->role,
+                    'long_name' => $request->long_name,
+                    'no_handphone' => $request->no_handphone,
+                    'gender' => $request->gender,
+                    'age' => $request->age,
+                ]);
+                return redirect('/login');
     }
 
     /**

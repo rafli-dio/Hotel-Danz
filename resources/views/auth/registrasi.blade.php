@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Register | Registrasi</title>
+  <title>Hotel Danz | Registrasi</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -45,10 +45,11 @@
             </div>
 
             <div class="card card-primary">
-              <div class="card-header"><h4>Register</h4></div>
+              <div class="card-header"><h4>Registrasi Akun</h4></div>
 
               <div class="card-body">
-                <form method="POST">
+                <form action="{{route('save-guest')}}" method="POST">
+                  @csrf
                   <div class="row">
                     <div class="form-group col-12">
                       <label for="username">Username</label>
@@ -58,23 +59,22 @@
 
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control" name="email">
+                    <input id="email" type="text" class="form-control" name="email">
                     <div class="invalid-feedback">
                     </div>
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-6">
+                    <div class="form-group col-12">
                       <label for="password" class="d-block">Password</label>
-                      <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password">
-                      <div id="pwindicator" class="pwindicator">
-                        <div class="bar"></div>
-                        <div class="label"></div>
-                      </div>
+                      <input id="password" type="password" class="form-control" name="password">
                     </div>
-                    <div class="form-group col-6">
-                      <label for="password2" class="d-block">Password Confirmation</label>
-                      <input id="password2" type="password" class="form-control" name="password-confirm">
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group col-12" style="display:none;">
+                      <label for="role" class="d-block">Role</label>
+                      <input id="role" type="text" class="form-control" name="role" value="guest">
                     </div>
                   </div>
 
@@ -89,26 +89,19 @@
                   <div class="form-group col-12">
                       <label for="no_handphone">No Handphone</label>
                       <input id="no_handphone" type="text" class="form-control" name="no_handphone" autofocus>
-                    </div>
+                  </div>
                     <div class="form-group col-6">
                       <label>Jenis Kelamin</label>
-                      <select class="form-control selectric">
+                      <select class="form-control selectric" name="gender" id="gender">
                         <option>Laki-Laki</option>
                         <option>Perempuan</option>
                       </select>
                     </div>
                     <div class="form-group col-6">
                       <label for="age">Umur</label>
-                      <input id="age" type="text" class="form-control" name="age" autofocus>
+                      <input id="age" type="number" class="form-control" name="age" autofocus>
                     </div>
                   </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="agree" class="custom-control-input" id="agree">
-                      <label class="custom-control-label" for="agree">I agree with the terms and conditions</label>
-                    </div>
                   </div>
 
                   <div class="form-group">

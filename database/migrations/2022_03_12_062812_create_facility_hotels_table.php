@@ -16,6 +16,8 @@ class CreateFacilityHotelsTable extends Migration
         Schema::create('facility_hotels', function (Blueprint $table) {
             $table->id();
             $table->string('name',50);
+            $table->string('desc',50);
+            $table->string('image');
             $table->timestamps();
         });
     }

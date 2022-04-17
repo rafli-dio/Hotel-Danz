@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Models\RoomType;
+use App\Models\FacilityHotel;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -15,7 +16,8 @@ class WelcomeController extends Controller
     public function index()
     {
         $rooms = Room::all();
-        return view('welcome', compact('rooms'));
+        $facilityhotels = FacilityHotel::all();
+        return view('welcome', compact('rooms','facilityhotels'));
     }
 
     /**

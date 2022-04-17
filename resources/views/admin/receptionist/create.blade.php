@@ -9,13 +9,21 @@
                     <form action="{{route('save-receptionist')}}" method="POST">
                       @csrf
                       <div class="form-group">
-                        <label>Nama</label>
-                        <input type="text" class="form-control" id='name' name='name'>
+                        <label>Username</label>
+                        <input type="text" class="form-control" id='name' name='username' value="{{ old('username') }}">
                       </div> 
                       <div class="form-group">
-                        <label>Alamat</label>
-                        <input type="text" class="form-control" id='address' name='address'>
+                        <label>Email</label>
+                        <input type="text" class="form-control" id='email' name='email' value="{{ old('email') }}">
+                      </div>
+                      <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id='password' name='password' value="{{ old('password') }}">
                       </div> 
+                      <!-- <div class="form-group" style="display:none;">
+                        <label>Role</label>
+                        <input type="texts" class="form-control" id='role' name='role'>
+                      </div>  -->
                       <button type="submit" class="btn btn-primary float-right">Tambah Data</button>
                     </form>
                 </div>              

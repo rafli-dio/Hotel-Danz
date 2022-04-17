@@ -13,14 +13,23 @@ class LoginController extends Controller
     }
 
     public function postlogin(Request $request) {
-        if(Auth::attempt($request->only('username','password'))){
-            return redirect('/admin');
+        if(Auth::guard('guest')->attempt(['username' => $request->username, 'password' => $request->password])){
+            return redirect('/guest');
         }
-        return redirect ('/login');
+        elseif((Auth::guard('user')->attempt(['username' => $request->username, 'password' => $request->password]))){
+            return redirect ('/admin');
+        }
+        elseif((Auth::guard('user')->attempt(['username' => $request->username, 'password' => $request->password]))){
+            return redirect ('/admin/reservation');
+        }
     } 
 
-    public function logout(Request $request) {
-        Auth::logout();
+    public function logout() {
+        if(Auth::guard('guest')->check()){
+            Auth::guard('guest')->logout();
+        }elseif(Auth::guard('user')->check()){
+            Auth::guard('user')->logout();
+        }
         return redirect('/');
     } 
 }

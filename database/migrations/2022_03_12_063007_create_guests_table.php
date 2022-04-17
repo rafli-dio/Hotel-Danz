@@ -18,11 +18,11 @@ class CreateGuestsTable extends Migration
             $table->string('username',30)->unique();
             $table->string('email',50);
             $table->string('password');
+            $table->string('role')->default('guest');
             $table->string('long_name',50);
             $table->string('no_handphone',20);
             $table->enum('gender',['Laki-Laki','Perempuan']);
             $table->integer('age')->unsigned();
-            $table->rememberToken();
             $table->timestamps();
         });
     }

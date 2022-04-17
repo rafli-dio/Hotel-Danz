@@ -5,7 +5,7 @@
               <div class="col-12 col-md-6 col-lg-12">
                 <div class="card">
                   <div class="card-body">
-                    <form action="{{route('update-room', + $rooms->id)}}" method="POST">
+                    <form action="{{route('update-room', + $rooms->id)}}" method="POST" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
                       <div class="form-group">
@@ -24,6 +24,10 @@
                       <div class="form-group">
                         <label>Nomor Kamar</label>
                         <input type="number" class="form-control" id="room_no" name="room_no" value="{{$rooms->room_no}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="image">Gambar</label>
+                        <input type="file" class="form-control-file" id="room_image" name="room_image" value="{{$rooms->room_image}}">
                       </div>
                       <div class="form-group">
                         <label>Harga Kamar</label>

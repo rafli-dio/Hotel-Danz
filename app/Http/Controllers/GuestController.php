@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Guest;
 use App\Models\Room;
+use App\Models\FacilityHotel;
 use App\Models\RoomType;
 class GuestController extends Controller
 {
@@ -17,7 +18,8 @@ class GuestController extends Controller
     public function index()
     {
         $rooms = Room::all();
-        return view('guest.home',compact('rooms'));
+        $facilityhotels = FacilityHotel::all();
+        return view('guest.home',compact('rooms','facilityhotels'));
     }
 
     public function indexAdmin() {
@@ -32,16 +34,16 @@ class GuestController extends Controller
     public function create($id)
     {
         $rooms = Room::find($id);
-        return view('guest.reservation',compact('rooms'));
+        $reservations = Reservation::find($id);
+        return view('guest.reservation',compact('rooms','reservations'));
     }
 
-    public function createGuest() {
-        return view('admin.guest.create');
+    public function confirm($id)
+    {
+        $reservations = Reservation::find($id);
+        return view('guest.confirm',compact('reservations'));
     }
 
-    // public function createGuest() {
-    //     return 
-    // }
 
     /**
      * Store a newly created resource in storage.
@@ -72,7 +74,9 @@ class GuestController extends Controller
             'check_out' => $request->check_out,
         ]);
 
-        return redirect('/guest');
+        $id = Reservation::orderBy('id', 'DESC')->get();
+
+        return redirect('/confirm/'. $id[0]->id);
     }
 
     /**
@@ -94,7 +98,8 @@ class GuestController extends Controller
      */
     public function edit($id)
     {
-        //
+        $guests = Guest::find($id);
+        return view('admin.guest.edit',compact('guests'));
     }
 
     /**
@@ -106,7 +111,17 @@ class GuestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'role' => 'required',
+            'long_name' => 'required',
+            'gender' => 'required',
+            'age' => 'required',
+        ]);
+        Guest::find($id)->update($request->all());
+        return redirect('/admin/guest/');
     }
 
     /**

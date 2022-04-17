@@ -8,16 +8,24 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{route('save-facility-hotel')}}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="name">Nama Fasilitas</label>
-                            <input type="text" class="form-control" placeholder="Contoh : Kolam Renang" id="name" name="name" value="{{ old('name') }}">
+                        <form action="{{route('save-facility-hotel')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label for="name">Nama Fasilitas</label>
+                                <input type="text" class="form-control" placeholder="Contoh : Kolam Renang" id="name" name="name" value="{{ old('name') }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="desc">Deskripsi</label>
+                                <input type="text" class="form-control" placeholder="Contoh : Kolam Renang Kedalaman 2 Meter" id="desc" name="desc" value="{{ old('desc') }}">
+                            </div>
+                            <div class="form-group">
+                            <label for="exampleFormControlFile1">Gambar</label>
+                            <input type="file" class="form-control-file" id="image" name="image">
+                          </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Tambah Data</button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Tambah Data</button>
                         </form>
                     </div>
                     </div>
@@ -41,12 +49,18 @@
                         <tr>
                           <th>No</th>
                           <th>Nama Fasilitas</th>
+                          <th>Deskripsi</th>
+                          <th>Gambar</th>
                           <th style="text-align:center">Aksi</th>
                         </tr>
                         @foreach($facilityhotels as $facilityhotel)
                         <tr>
                           <td>{{$loop->iteration}}</td>
                           <td>{{$facilityhotel->name}}</td>
+                          <td>{{$facilityhotel->desc}}</td>
+                          <td>
+                            <img src="{{asset('storage/'. $facilityhotel->image)}}" width="200px" alt="">
+                          </td>
                           <td style="text-align:center">
                             <button href="#" class="btn btn-warning" style="width:100px"><a href="{{route('edit-facility-hotel',+ $facilityhotel->id)}}" class='text-white'><i class="far fa-edit mr-3"></i>Edit</a></button>
                             <button  class="btn btn-danger" style="width:100px"> <a href="{{route('delete-facility-hotel',+ $facilityhotel->id)}}" class='text-white'>
@@ -56,23 +70,6 @@
                         @endforeach
                       </table>
                     </div>
-                  </div>
-                  <div class="card-footer text-right">
-                    <nav class="d-inline-block">
-                      <ul class="pagination mb-0">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                        </li>
-                      </ul>
-                    </nav>
                   </div>
                 </div>
               </div>

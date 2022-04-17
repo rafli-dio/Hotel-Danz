@@ -35,12 +35,24 @@ class FacilityHotelController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        // dd('berhasil');
+
+
         $request->validate([
             'name' => 'required',
+            'desc' => 'required',
+            'image' => 'image|file|max:10000|mimes:jpg,jpeg,png',
         ]);
 
+        $file_name = $request->image->getClientOriginalName();
+        $image = $request->image->storeAs('post-facility-hotel-image',$file_name);
+
         FacilityHotel::create([
-            'name' => $request->name
+            'name' => $request->name,
+            'desc' => $request->desc,
+            'image' => $image,
         ]);
         return redirect('admin/facility-hotel');
     }
@@ -78,10 +90,21 @@ class FacilityHotelController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required'
+            'name' => 'required',
+            'desc' => 'required',
+            'image' => 'image|file|max:10000|mimes:jpg,jpeg,png'
         ]);
 
-        FacilityHotel::find($id)->update($request->all());
+        $file_name = $request->image->getClientOriginalName();
+        $image = $request->image->storeAs('post-facility-hotel-image',$file_name);
+
+        $facilityhotels = FacilityHotel::find($id)
+        ->update([
+            "name" => $request->name,
+            "desc" => $request->desc,
+            "image" => $image,
+        ]);
+
         return redirect('/admin/facility-hotel/');
     }
 
